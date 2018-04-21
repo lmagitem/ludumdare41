@@ -26,7 +26,16 @@ public class CameraFollow : MonoBehaviour {
 
 	void Update () {
 
-        FixedCameraFollowSmooth(GetComponent<Camera>(), player1, player2);
+        if (playerCount == 1)
+        {
+            transform.position = player1;
+
+        }
+        else
+        {
+            FixedCameraFollowSmooth(GetComponent<Camera>(), player1, player2);
+
+        }
 
         }
     // Follow Two Transforms with a Fixed-Orientation Camera
