@@ -1,0 +1,21 @@
+v1.4 (11 nov 2014):
+* new song parameter - Shuffle;
+* now any song parameters (BPM, Shuffle, Number of lines, Number of tracks) can be changed in the Main Menu -> Song Settings;
+* iOS: Audiobus 2 and IAA (partially) support;
+* bugs fixed.
+v1.3 (18 feb 2014):
+* added ability to change screen orientation manually (only for Android): Preferences -> Interface -> Angle;
+* additional File Browser functions: Remove, Rename, Cut, Copy, Paste, Create Directory;
+* now you can see the file size in the File Browser;
+* bugs fixed.
+v1.2 (04 aug 2013):
+* bugs fixed.
+v1.1 (21 may 2013):
+* extended list of supported audio systems: Audiobus, ALSA, JACK (iOS and Linux), SDL, OSS, DirectSound, MME, ASIO;
+* additional audio/gfx settings in the Main Menu -> Preferences -> Audio & Graphics;
+* additional background images (Main Menu -> Preferences -> Background);
+* now you can play any loaded WAV sound with its original speed on the first note of the 6th octave;
+* improved visualizer;
+* bugs fixed.
+v1.0 (26 jul 2012):
+* the first release.
