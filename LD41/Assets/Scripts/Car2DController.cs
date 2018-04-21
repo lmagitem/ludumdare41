@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Car2DController : MonoBehaviour {
+    public int player;
+
     // Movement variables
     public float speedForce = 5.5f;
     public float angleSpeed = 4f;
@@ -45,7 +47,7 @@ public class Car2DController : MonoBehaviour {
 
         rb.velocity = ForwardVelocity() + RightVelocity() * driftFactor;
 
-        if(Input.GetButton("Accelerate"))
+        if(Input.GetButton("Accelerate p" + player))
         {
             rb.AddForceAtPosition(transform.up * speedForce, new Vector2(leftRearWheel.position.x, leftRearWheel.position.y));
             rb.AddForceAtPosition(transform.up * speedForce, new Vector2(rightRearWheel.position.x, rightRearWheel.position.y));
@@ -53,7 +55,7 @@ public class Car2DController : MonoBehaviour {
             angleSpeed = 4;
         }
 
-        if(Input.GetButton("Brakes"))
+        if(Input.GetButton("Brakes p" + player))
         {
             if(Mathf.Abs(rb.velocity.x * rb.velocity.y) > 0.1)
             {
@@ -74,8 +76,8 @@ public class Car2DController : MonoBehaviour {
         }
 
 
-        rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal") * rb.velocity.magnitude / angleSpeed, new Vector2(leftFrontWheel.position.x, leftFrontWheel.position.y));
-        rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal") * rb.velocity.magnitude / angleSpeed, new Vector2(rightFrontWheel.position.x, rightFrontWheel.position.y));
+        rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal p" + player) * rb.velocity.magnitude / angleSpeed, new Vector2(leftFrontWheel.position.x, leftFrontWheel.position.y));
+        rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal p" + player) * rb.velocity.magnitude / angleSpeed, new Vector2(rightFrontWheel.position.x, rightFrontWheel.position.y));
 
 
         float speed = rb.velocity.magnitude / 14;
