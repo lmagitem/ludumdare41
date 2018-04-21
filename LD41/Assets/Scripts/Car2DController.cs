@@ -13,7 +13,7 @@ public class Car2DController : MonoBehaviour {
     public float driftFactorSlippy = 1;
     public float maxStickyVelocity = 2.2f;
     public float minSlippyVelocity = 1.5f;
-    public float maxTimeToRestart = 40f;
+    public float maxTimeToRestart = 20f;
     float timeToRestart = 0;
     public Transform leftFrontWheel;
     public Transform rightFrontWheel;
