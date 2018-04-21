@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Car2DController : MonoBehaviour {
-
+    // Movement variables
     public float speedForce = 5.5f;
     public float angleSpeed = 4f;
+    public float timeToMaxSpeed = 1f;
+    float speedTimer = 0;
     public float driftFactorSticky = 0.95f;
     public float driftFactorSlippy = 1;
     public float maxStickyVelocity = 2.2f;
     public float minSlippyVelocity = 1.5f;
-
+    public float maxTimeToRestart = 40f;
+    float timeToRestart = 0;
     public Transform leftFrontWheel;
     public Transform rightFrontWheel;
     public Transform leftRearWheel;
     public Transform rightRearWheel;
+    public Text publicSpeed;
+    public Image publicSpeedSlider;
+
 
     void Start ()
     {
@@ -38,25 +45,43 @@ public class Car2DController : MonoBehaviour {
 
         rb.velocity = ForwardVelocity() + RightVelocity() * driftFactor;
 
-        // À AJOUTER : Accélération progressive
-
         if(Input.GetButton("Accelerate"))
         {
             rb.AddForceAtPosition(transform.up * speedForce, new Vector2(leftRearWheel.position.x, leftRearWheel.position.y));
             rb.AddForceAtPosition(transform.up * speedForce, new Vector2(rightRearWheel.position.x, rightRearWheel.position.y));
+            timeToRestart = 0;
+            angleSpeed = 4;
         }
-
-        // À AJOUTER : Si tu appuies sur les freins, ça ne recule pas direct, ça tue ta vitesse, puis quand t'es arrêté, tu pars en arrière.
 
         if(Input.GetButton("Brakes"))
         {
-            rb.AddForceAtPosition(transform.up * -speedForce / 2, new Vector2(leftRearWheel.position.x, leftRearWheel.position.y));
-            rb.AddForceAtPosition(transform.up * -speedForce / 2, new Vector2(rightRearWheel.position.x, rightRearWheel.position.y));
-            rb.AddForce(transform.up * -speedForce / 2f);
+            if(Mathf.Abs(rb.velocity.x * rb.velocity.y) > 0.1)
+            {
+                rb.AddForceAtPosition(transform.up * -speedForce / 1.5f, new Vector2(leftRearWheel.position.x, leftRearWheel.position.y));
+                rb.AddForceAtPosition(transform.up * -speedForce / 1.5f, new Vector2(rightRearWheel.position.x, rightRearWheel.position.y));
+                angleSpeed = 10;
+            }
+            else
+            {
+                timeToRestart += 1;
+                if(timeToRestart >= maxTimeToRestart)
+                {
+                    rb.AddForceAtPosition(transform.up * -speedForce, new Vector2(leftRearWheel.position.x, leftRearWheel.position.y));
+                    rb.AddForceAtPosition(transform.up * -speedForce, new Vector2(rightRearWheel.position.x, rightRearWheel.position.y));
+                    angleSpeed = 4;
+                }
+            }
         }
+
 
         rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal") * rb.velocity.magnitude / angleSpeed, new Vector2(leftFrontWheel.position.x, leftFrontWheel.position.y));
         rb.AddForceAtPosition(transform.right * Input.GetAxis("Horizontal") * rb.velocity.magnitude / angleSpeed, new Vector2(rightFrontWheel.position.x, rightFrontWheel.position.y));
+
+
+        float speed = rb.velocity.magnitude / 14;
+        publicSpeedSlider.fillAmount = speed;
+        float toShow = Mathf.Round(speed * 140);
+        publicSpeed.text = toShow + " km/h";
 
     }
 
