@@ -79,9 +79,4 @@ public class PowerUpScript : MonoBehaviour {
 
 		}
 	}
-	IEnumerator desactivationPower()
-	{
-		yield return new WaitForSeconds (tempsDesacPower);
-		desactiverPower = false;
-	}
 }
