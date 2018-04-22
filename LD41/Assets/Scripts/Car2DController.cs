@@ -24,6 +24,7 @@ public class Car2DController : MonoBehaviour {
     public float maxTimeToRestart = 20f;
     float timeToRestart = 0;
 
+
     // Power charges
 	public int color= 0;
 	private bool coroutinePurple = false;
