@@ -29,8 +29,9 @@ public class Car2DController : MonoBehaviour {
 	private bool coroutinePurple = false;
 	private bool blocageAppui = false;
 
-    void Start ()
+    void Awake ()
     {
+        name = "Player" + player;
         leftFrontWheel = GetComponentInChildren<LFW>().gameObject.transform;
         rightFrontWheel = GetComponentInChildren<RFW>().gameObject.transform;
         leftRearWheel = GetComponentInChildren<LRW>().gameObject.transform;

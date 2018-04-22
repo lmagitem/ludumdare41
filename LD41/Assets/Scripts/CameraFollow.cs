@@ -19,9 +19,19 @@ public class CameraFollow : MonoBehaviour {
 
     void Start ()
     {
-        if(player2.gameObject.activeInHierarchy) { playerCount += 1; }
-        if(player3.gameObject.activeInHierarchy) { playerCount += 1; }
-        if(player4.gameObject.activeInHierarchy) { playerCount += 1; }
+        player1 = GameObject.Find("Player1").transform;
+        if(player2.gameObject.activeInHierarchy) {
+            playerCount += 1;
+            player1 = GameObject.Find("Player2").transform;
+        }
+        if(player3.gameObject.activeInHierarchy) {
+            playerCount += 1;
+            player1 = GameObject.Find("Player3").transform;
+        }
+        if(player4.gameObject.activeInHierarchy) {
+            playerCount += 1;
+            player1 = GameObject.Find("Player4").transform;
+        }
     }
 
 	void Update () {
@@ -31,11 +41,11 @@ public class CameraFollow : MonoBehaviour {
             transform.position = new Vector3 (player1.position.x, player1.position.y, transform.position.z);
 
         }
-        /* else
+        else
         {
             FixedCameraFollowSmooth(GetComponent<Camera>(), player1, player2);
 
-        }*/
+        }
 
         }
     // Follow Two Transforms with a Fixed-Orientation Camera
