@@ -31,11 +31,11 @@ public class CameraFollow : MonoBehaviour {
             transform.position = new Vector3 (player1.position.x, player1.position.y, transform.position.z);
 
         }
-        else
+        /* else
         {
             FixedCameraFollowSmooth(GetComponent<Camera>(), player1, player2);
 
-        }
+        }*/
 
         }
     // Follow Two Transforms with a Fixed-Orientation Camera

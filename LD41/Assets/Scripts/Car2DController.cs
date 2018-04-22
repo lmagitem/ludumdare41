@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Car2DController : MonoBehaviour {
     public int player;
+    Transform leftFrontWheel;
+    Transform rightFrontWheel;
+    Transform leftRearWheel;
+    Transform rightRearWheel;
+    Text publicSpeed;
+    Image publicSpeedSlider;
 
     // Movement variables
     public float speedForce = 5.5f;
@@ -17,19 +23,20 @@ public class Car2DController : MonoBehaviour {
     public float minSlippyVelocity = 1.5f;
     public float maxTimeToRestart = 20f;
     float timeToRestart = 0;
-    public Transform leftFrontWheel;
-    public Transform rightFrontWheel;
-    public Transform leftRearWheel;
-    public Transform rightRearWheel;
-    public Text publicSpeed;
-    public Image publicSpeedSlider;
+
+    // Power charges
 	public int color= 0;
 	private bool coroutinePurple = false;
 	private bool blocageAppui = false;
 
     void Start ()
     {
-
+        leftFrontWheel = GetComponentInChildren<LFW>().gameObject.transform;
+        rightFrontWheel = GetComponentInChildren<RFW>().gameObject.transform;
+        leftRearWheel = GetComponentInChildren<LRW>().gameObject.transform;
+        rightRearWheel = GetComponentInChildren<RRW>().gameObject.transform;
+        publicSpeed = GameObject.Find("RText" + player).GetComponent<Text>();
+        publicSpeedSlider = GameObject.Find("SSImage" + player).GetComponent<Image>();
     }
 
     void Update()
