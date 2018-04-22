@@ -34,9 +34,8 @@ public class Car2DController : MonoBehaviour {
 	public bool desactiverPower = false;
 	public float tempsDesacPower = 2f;
 
-    void Awake ()
+    void Start ()
     {
-        name = "Player" + player;
         leftFrontWheel = GetComponentInChildren<LFW>().gameObject.transform;
         rightFrontWheel = GetComponentInChildren<RFW>().gameObject.transform;
         leftRearWheel = GetComponentInChildren<LRW>().gameObject.transform;

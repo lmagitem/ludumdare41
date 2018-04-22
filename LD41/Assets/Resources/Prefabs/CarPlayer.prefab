@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 61992268497098354}
   m_Layer: 0
   m_Name: CarPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +229,11 @@ MonoBehaviour:
   minSlippyVelocity: 1.5
   maxTimeToRestart: 30
   color: 0
+  chargeColorRed: 0
+  chargeBleu: 0
+  chargeRouge: 0
+  desactiverPower: 0
+  tempsDesacPower: 2
 --- !u!114 &114481280609716480
 MonoBehaviour:
   m_ObjectHideFlags: 1
