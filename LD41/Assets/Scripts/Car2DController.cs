@@ -153,7 +153,7 @@ public class Car2DController : MonoBehaviour {
 
 		//-1charge fonction couleur
 	}
-	void OnTriggerEnter (Collider other) // pickups
+	void OnTriggerEnter2D (Collider2D other) // pickups
 	{
 		if (other.gameObject.CompareTag ("PowerUp")) {
 			int color = other.gameObject.GetComponent<PowerUpScript>().colorPower;

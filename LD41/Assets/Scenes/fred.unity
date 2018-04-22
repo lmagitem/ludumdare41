@@ -180,10 +180,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1606489495814808, guid: 7f13dcfd6a4ef3741baba5a7dc5f4091, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f13dcfd6a4ef3741baba5a7dc5f4091, type: 2}
   m_IsPrefabParent: 0
@@ -308,6 +304,17 @@ Prefab:
       value: 
       objectReference: {fileID: 21300010, guid: caadf891248b31a4ca27286fee81fc9e,
         type: 3}
+    - target: {fileID: 114470947226818610, guid: 7e86bc79c0e1931498323eb57d492ca6,
+        type: 2}
+      propertyPath: color4
+      value: 
+      objectReference: {fileID: 21300010, guid: caadf891248b31a4ca27286fee81fc9e,
+        type: 3}
+    - target: {fileID: 114470947226818610, guid: 7e86bc79c0e1931498323eb57d492ca6,
+        type: 2}
+      propertyPath: colorPower
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e86bc79c0e1931498323eb57d492ca6, type: 2}
   m_IsPrefabParent: 0
