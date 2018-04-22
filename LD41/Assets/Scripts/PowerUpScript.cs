@@ -7,6 +7,7 @@ public class PowerUpScript : MonoBehaviour {
 	public int colorPower = 1;
 	public Sprite color1;
 	public Sprite color2;
+	public Sprite color3;
 
 	// Use this for initialization
 	void Awake () 
@@ -24,6 +25,15 @@ public class PowerUpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		bool activate = gameObject.GetComponent<Car2DController>().desactiverPower;
+		if (activate == false) {
+			colorPower = 3;
+		}
+	}
+
+	void FixedUpdate () {
+		if (colorPower == 3) {
+			GetComponent<SpriteRenderer> ().sprite = color3;
+		}
 	}
 }
