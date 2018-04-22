@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: cb26280dfeffb394e90401dd937f7e32
-timeCreated: 1524303558
+guid: a4cf33d564a6168479859c01f6f86071
+timeCreated: 1524398990
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,52 +8,6 @@ TextureImporter:
     21300002: cars_2
     21300004: cars_3
     21300006: cars_4
-    21300008: cars_4
-    21300010: cars_5
-    21300012: cars_6
-    21300014: cars_7
-    21300016: cars_8
-    21300018: cars_9
-    21300020: cars_10
-    21300022: cars_11
-    21300024: cars_12
-    21300026: cars_13
-    21300028: cars_14
-    21300030: cars_15
-    21300032: cars_16
-    21300034: cars_17
-    21300036: cars_18
-    21300038: cars_19
-    21300040: cars_20
-    21300042: cars_21
-    21300044: cars_22
-    21300046: cars_23
-    21300048: cars_24
-    21300050: cars_25
-    21300052: cars_26
-    21300054: cars_27
-    21300056: cars_28
-    21300058: cars_29
-    21300060: cars_30
-    21300062: cars_31
-    21300064: cars_32
-    21300066: cars_33
-    21300068: cars_34
-    21300070: cars_35
-    21300072: cars_36
-    21300074: cars_37
-    21300076: cars_38
-    21300078: cars_39
-    21300080: cars_40
-    21300082: cars_41
-    21300084: cars_42
-    21300086: cars_43
-    21300088: cars_44
-    21300090: cars_45
-    21300092: cars_46
-    21300094: cars_47
-    21300096: cars_48
-    21300098: cars_49
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -81,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -139,7 +93,7 @@ TextureImporter:
         width: 32
         height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,7 +107,7 @@ TextureImporter:
         width: 37
         height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,7 +121,7 @@ TextureImporter:
         width: 32
         height: 59
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,7 +135,7 @@ TextureImporter:
         width: 32
         height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
