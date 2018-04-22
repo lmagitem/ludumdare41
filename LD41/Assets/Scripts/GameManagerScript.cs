@@ -6,11 +6,15 @@ public class GameManagerScript : MonoBehaviour {
 
     public int playerCount = 1;
     public int currentLevel = 0;
-
+	private static bool created = false;
 
 	// Use this for initialization
-	void Start () {
-        DontDestroyOnLoad(gameObject);
+	void Awake () {
+		if (!created)
+		{
+			DontDestroyOnLoad (gameObject);
+			created = true;
+		}
 	}
 	
 	// Update is called once per frame
