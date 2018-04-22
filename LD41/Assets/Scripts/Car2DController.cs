@@ -24,6 +24,7 @@ public class Car2DController : MonoBehaviour {
     public float maxTimeToRestart = 20f;
     float timeToRestart = 0;
 
+
     // Power charges
 	public int color= 0;
 	private bool coroutinePurple = false;
@@ -33,9 +34,8 @@ public class Car2DController : MonoBehaviour {
 	public int chargeRouge = 0;
 
 
-    void Awake ()
+    void Start ()
     {
-        name = "Player" + player;
         leftFrontWheel = GetComponentInChildren<LFW>().gameObject.transform;
         rightFrontWheel = GetComponentInChildren<RFW>().gameObject.transform;
         leftRearWheel = GetComponentInChildren<LRW>().gameObject.transform;

@@ -7,7 +7,7 @@ public class SlidersScript : MonoBehaviour {
     public int player = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         char[] temp = name.ToCharArray();
         player = int.Parse(temp[12].ToString());
 
@@ -15,6 +15,10 @@ public class SlidersScript : MonoBehaviour {
         if (player > gamemanager.GetComponent<GameManagerScript>().playerCount)
         {
             gameObject.SetActive(false);
+        }
+        else
+        {
+
         }
     }
 	

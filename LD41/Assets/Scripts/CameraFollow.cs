@@ -14,23 +14,21 @@ public class CameraFollow : MonoBehaviour {
     public float zoomFactor = 1f;
     public float followTimeDelta = 1f;
     public float divideOrtho = 1f;
-    int playerCount = 1;
+    int playerCount;
 
 
     void Start ()
     {
+        playerCount = GameObject.FindWithTag("GameManager").GetComponent<GameManagerScript>().playerCount;
         player1 = GameObject.Find("Player1").transform;
-        if(player2.gameObject.activeInHierarchy) {
-            playerCount += 1;
-            player1 = GameObject.Find("Player2").transform;
+        if(playerCount > 1) {
+            player2 = GameObject.Find("Player2").transform;
         }
-        if(player3.gameObject.activeInHierarchy) {
-            playerCount += 1;
-            player1 = GameObject.Find("Player3").transform;
+        if(playerCount > 2) {
+            player3 = GameObject.Find("Player3").transform;
         }
-        if(player4.gameObject.activeInHierarchy) {
-            playerCount += 1;
-            player1 = GameObject.Find("Player4").transform;
+        if(playerCount > 3) {
+            player4 = GameObject.Find("Player4").transform;
         }
     }
 
