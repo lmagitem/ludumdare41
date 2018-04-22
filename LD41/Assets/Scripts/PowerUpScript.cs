@@ -9,6 +9,10 @@ public class PowerUpScript : MonoBehaviour {
 	public Sprite color2;
 	public Sprite color3;
 
+
+	public bool desactiverPower = false;
+	public float tempsDesacPower = 2f;
+
 	// Use this for initialization
 	void Awake () 
 	{
@@ -35,5 +39,17 @@ public class PowerUpScript : MonoBehaviour {
 		if (colorPower == 3) {
 			GetComponent<SpriteRenderer> ().sprite = color3;
 		}
+	}
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.CompareTag ("Player")) {
+			desactiverPower = true;
+			StartCoroutine ("desactivationPower");
+
+		}
+	}
+	IEnumerator desactivationPower()
+	{
+		yield return new WaitForSeconds (tempsDesacPower);
+		desactiverPower = false;
 	}
 }
