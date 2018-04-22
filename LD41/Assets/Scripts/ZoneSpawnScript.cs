@@ -11,7 +11,7 @@ public class ZoneSpawnScript : MonoBehaviour {
         for(int i = 0; i < gamemanager.GetComponent<GameManagerScript>().playerCount; i++)
         {
             Vector3 tempTransform = gameObject.transform.position; 
-            GameObject temp = Instantiate(prefab, new Vector3(, gameObject.transform.localRotation, null);
+            //GameObject temp = Instantiate(prefab, new Vector3(, gameObject.transform.localRotation, null);
         }
 
     }

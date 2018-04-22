@@ -154,31 +154,21 @@ public class Car2DController : MonoBehaviour {
 
 		//-1charge fonction couleur
 	}
-	void OnTriggerEnter (Collider other) // pickups
+	void OnTriggerEnter2D (Collider2D other) // pickups
 	{
 		if (other.gameObject.CompareTag ("PowerUp")) {
 			int color = other.gameObject.GetComponent<PowerUpScript>().colorPower;
 			if (color == 1) {
 				chargeRouge = +3;
-				desactiverPower = true;
-				StartCoroutine ("desactivationPower");
-
 			}
 			if (color == 2) {
 				chargeBleu = +3;
-				desactiverPower = true;
-				StartCoroutine ("desactivationPower");
-
 			}
 		}
 
 		//+1charge + type couleur
 		//timer respawn
 	}
-	IEnumerator desactivationPower()
-	{
-		yield return new WaitForSeconds (tempsDesacPower);
-		desactiverPower = false;
-	}
+
 }
 

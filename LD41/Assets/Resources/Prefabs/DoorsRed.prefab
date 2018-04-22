@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212905543922893168}
   - component: {fileID: 114499377398078558}
   - component: {fileID: 61624882514802830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorsRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
