@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4109630796699926}
   - component: {fileID: 212809220596556394}
+  - component: {fileID: 58624734659901272}
+  - component: {fileID: 114470947226818610}
   m_Layer: 0
   m_Name: Power
   m_TagString: Untagged
@@ -34,12 +36,41 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831521410381724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4404144, y: -7.960327, z: 0}
+  m_LocalPosition: {x: 1.71, y: -2.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58624734659901272
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831521410381724}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!114 &114470947226818610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831521410381724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ed8ed0104a79541bb15c8c704e82d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPower: 2
+  color1: {fileID: 21300006, guid: caadf891248b31a4ca27286fee81fc9e, type: 3}
+  color2: {fileID: 21300008, guid: caadf891248b31a4ca27286fee81fc9e, type: 3}
 --- !u!212 &212809220596556394
 SpriteRenderer:
   m_ObjectHideFlags: 1
