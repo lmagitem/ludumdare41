@@ -31,8 +31,7 @@ public class Car2DController : MonoBehaviour {
 	public int chargeColorRed = 0;
 	public int chargeBleu = 0;
 	public int chargeRouge = 0;
-	public bool desactiverPower = false;
-	public float tempsDesacPower = 2f;
+
 
     void Awake ()
     {
@@ -158,27 +157,19 @@ public class Car2DController : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag ("PowerUp")) {
 			int color = other.gameObject.GetComponent<PowerUpScript>().colorPower;
-			if (color == 1) {
+			if (color == 1) 
+			{
 				chargeRouge = +3;
-				desactiverPower = true;
-				StartCoroutine ("desactivationPower");
-
 			}
-			if (color == 2) {
+			if (color == 2) 
+			{
 				chargeBleu = +3;
-				desactiverPower = true;
-				StartCoroutine ("desactivationPower");
-
 			}
 		}
 
 		//+1charge + type couleur
 		//timer respawn
 	}
-	IEnumerator desactivationPower()
-	{
-		yield return new WaitForSeconds (tempsDesacPower);
-		desactiverPower = false;
-	}
+
 }
 
