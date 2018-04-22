@@ -72,4 +72,16 @@ public class PowerUpScript : MonoBehaviour {
 
 
 	}
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.CompareTag ("Player")) {
+			desactiverPower = true;
+			StartCoroutine ("desactivationPower");
+
+		}
+	}
+	IEnumerator desactivationPower()
+	{
+		yield return new WaitForSeconds (tempsDesacPower);
+		desactiverPower = false;
+	}
 }
