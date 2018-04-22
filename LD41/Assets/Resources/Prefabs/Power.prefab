@@ -71,6 +71,7 @@ MonoBehaviour:
   colorPower: 2
   color1: {fileID: 21300006, guid: caadf891248b31a4ca27286fee81fc9e, type: 3}
   color2: {fileID: 21300008, guid: caadf891248b31a4ca27286fee81fc9e, type: 3}
+  color3: {fileID: 0}
 --- !u!212 &212809220596556394
 SpriteRenderer:
   m_ObjectHideFlags: 1

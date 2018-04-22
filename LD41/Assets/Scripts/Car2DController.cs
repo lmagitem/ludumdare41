@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿							using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +17,7 @@ public class Car2DController : MonoBehaviour {
     public float angleSpeed = 4f;
     public float timeToMaxSpeed = 1f;
     float speedTimer = 0;
-    public float driftFactorSticky = 0.95f;
+    public float driftFactorSticky = 0.99f;
     public float driftFactorSlippy = 1;
     public float maxStickyVelocity = 2.2f;
     public float minSlippyVelocity = 1.5f;
@@ -28,6 +28,11 @@ public class Car2DController : MonoBehaviour {
 	public int color= 0;
 	private bool coroutinePurple = false;
 	private bool blocageAppui = false;
+	public int chargeColorRed = 0;
+	public int chargeBleu = 0;
+	public int chargeRouge = 0;
+	public bool desactiverPower = false;
+	public float tempsDesacPower = 2f;
 
     void Awake ()
     {
@@ -142,7 +147,38 @@ public class Car2DController : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		blocageAppui = false;
 		coroutinePurple = false;
+	}
 
+	void OnTriggerExit () //portes
+	{
+
+		//-1charge fonction couleur
+	}
+	void OnTriggerEnter (Collider other) // pickups
+	{
+		if (other.gameObject.CompareTag ("PowerUp")) {
+			int color = other.gameObject.GetComponent<PowerUpScript>().colorPower;
+			if (color == 1) {
+				chargeRouge = +3;
+				desactiverPower = true;
+				StartCoroutine ("desactivationPower");
+
+			}
+			if (color == 2) {
+				chargeBleu = +3;
+				desactiverPower = true;
+				StartCoroutine ("desactivationPower");
+
+			}
+		}
+
+		//+1charge + type couleur
+		//timer respawn
+	}
+	IEnumerator desactivationPower()
+	{
+		yield return new WaitForSeconds (tempsDesacPower);
+		desactiverPower = false;
 	}
 }
 
