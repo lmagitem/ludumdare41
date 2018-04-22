@@ -23,7 +23,9 @@ public class Car2DController : MonoBehaviour {
     public Transform rightRearWheel;
     public Text publicSpeed;
     public Image publicSpeedSlider;
-
+	public int color= 0;
+	private bool coroutinePurple = false;
+	private bool blocageAppui = false;
 
     void Start ()
     {
@@ -32,7 +34,8 @@ public class Car2DController : MonoBehaviour {
 
     void Update()
     {
-
+		
+	
     }
 
     void FixedUpdate()
@@ -85,6 +88,36 @@ public class Car2DController : MonoBehaviour {
         float toShow = Mathf.Round(speed * 140);
         publicSpeed.text = toShow + " km/h";
 
+		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue")) 
+		{
+			color = 3;
+			blocageAppui = true;
+			coroutinePurple = true;
+			StartCoroutine ("purplePause");
+
+		}
+		else if(Input.GetButton("ColorRed") && blocageAppui == false)
+		{
+			color = 2;
+		}
+
+		else if(Input.GetButton("ColorBlue") && blocageAppui == false)
+		{
+			color = 1;
+		}
+		if (color == 1) {
+			gameObject.layer = 9; 
+			print ("blue");
+		} 
+		if (color == 2) {
+			gameObject.layer = 10; 
+			print ("red");
+		} 
+		if (color == 3) {
+			gameObject.layer = 11; 
+			print ("purple");
+		} 
+
     }
 
     Vector2 ForwardVelocity()
@@ -96,4 +129,12 @@ public class Car2DController : MonoBehaviour {
     {
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
+	IEnumerator purplePause()
+	{
+		yield return new WaitForSeconds (0.5f);
+		blocageAppui = false;
+		coroutinePurple = false;
+
+	}
 }
+

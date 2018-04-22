@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Red
+  - Blue
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - 
   - 
   - YuME_TileMap
-  - 
-  - 
-  - 
-  - 
+  - Blue
+  - Red
+  - Purple
+  - White
   - 
   - 
   - 
