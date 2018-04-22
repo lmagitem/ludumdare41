@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour {
 
+    public int playerCount = 1;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +16,21 @@ public class GameManagerScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void UnJoueur()
+    {
+        playerCount = 1;
+    }
+    public void DeuxJoueurs()
+    {
+        playerCount = 2;
+    }
+    public void TroisJoueurs()
+    {
+        playerCount = 3;
+    }
+    public void QuatreJoueurs()
+    {
+        playerCount = 4;
+    }
 }
