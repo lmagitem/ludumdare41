@@ -171,6 +171,10 @@ public class Car2DController : MonoBehaviour {
 			}
 		
 		}
+		if (other.gameObject.CompareTag ("Doors"))
+		{
+
+		}
 
 	}
 
