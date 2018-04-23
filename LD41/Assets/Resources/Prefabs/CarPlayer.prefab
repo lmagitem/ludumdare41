@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4969772541027870}
   - component: {fileID: 114828122617309068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left-Front Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4264704469841538}
   - component: {fileID: 114481280609716480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right-Rear Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 50291725600834876}
   - component: {fileID: 212863101620611188}
   - component: {fileID: 61992268497098354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CarPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072924755540780}
   - component: {fileID: 114934534087600208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left-Rear Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4520876355448276}
   - component: {fileID: 114988752125519318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right-Front Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
   chargeBleu: 0
   chargeRouge: 0
   colorCharge: 0
+  colorToOut: 0
   redTrail: {fileID: 1130305884161838, guid: 1d2e16898c4c4fe4bbea344111609a33, type: 2}
 --- !u!114 &114481280609716480
 MonoBehaviour:

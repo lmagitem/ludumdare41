@@ -33,6 +33,9 @@ public class Car2DController : MonoBehaviour {
 	public int chargeRouge = 0;
 	public int colorCharge;
 
+	//Doors interactions
+	public int colorToOut;
+
 	// Particules
 
 	public GameObject redTrail;
@@ -58,7 +61,8 @@ public class Car2DController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		print (chargeBleu);
+		Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         float driftFactor = driftFactorSticky;
         if(RightVelocity().magnitude > maxStickyVelocity)
@@ -131,20 +135,19 @@ public class Car2DController : MonoBehaviour {
 			colorVehicule = 1;
 		}
 
-
 		//je change de Layer pour stop les collision avec les portes
-
+		if (chargeBleu + chargeRouge == 0)
+		{
+			gameObject.layer = 8;
+		}
 		if (colorVehicule == 1 && chargeBleu > 0) {
 			gameObject.layer = 9; 
-			print ("blue");
 		} 
 		if (colorVehicule == 2 && chargeRouge > 0) {
 			gameObject.layer = 10; 
-			print ("red");
 		} 
 		if (colorVehicule == 3 && chargeRouge> 0 && chargeBleu >0) {
 			gameObject.layer = 11; 
-			print ("purple");
 		} 
 
     }
@@ -157,19 +160,15 @@ public class Car2DController : MonoBehaviour {
 
 			if (colorCharge == 1) 
 			{
-				chargeBleu = +3;
+				chargeBleu = chargeBleu + 3;
 			}
 			if (colorCharge == 2) 
 			{
-				chargeRouge = +3;
+				chargeRouge = chargeRouge +3;
 			}
 		
 		}
-		if (other.gameObject.CompareTag ("Doors"))
-		{
-			
 
-		}
 	}
 
     Vector2 ForwardVelocity()
@@ -188,10 +187,26 @@ public class Car2DController : MonoBehaviour {
 		coroutinePurple = false;
 	}
 		
-	void OnTriggerExit () //portes
+	void OnTriggerExit2D (Collider2D other) 
 	{
+		if (other.gameObject.CompareTag ("Doors"))
+		{
+			colorToOut = other.gameObject.GetComponent<DoorsScriptColor>().colorDoor;
+			if (colorToOut == 1)
+			{
+				chargeBleu = chargeBleu - 1;
+			}
+			if (colorToOut == 2)
+			{
+				chargeRouge = chargeRouge-1;
+			}
+			if (colorToOut == 3)
+			{
+				chargeRouge = chargeRouge-1;
+				chargeBleu = chargeBleu-1;
+			}
 
-		//-1charge fonction couleur
+		}
 	}
 }
 
