@@ -154,7 +154,7 @@ public class Car2DController : MonoBehaviour {
 
     }
 
-	void OnTriggerEnter2D (Collider2D other) // pickups
+	void OnTriggerEnter2D (Collider2D other) 
 	{
 		if (other.gameObject.CompareTag ("PowerUp")) 
 		{
@@ -186,12 +186,17 @@ public class Car2DController : MonoBehaviour {
 			}
 			if (colorToOut == 3 && colorVehicule == 3 && chargeRouge> 0 && chargeBleu >0)
 			{
+				other.gameObject.SetActive (false);
 				chargeRouge = chargeRouge - 1;
 				chargeBleu = chargeBleu - 1;
 			}
 		}
+	
 	}
+	void OnTriggerEnterStay2D (Collider2D other) 
+	{
 
+	}
     Vector2 ForwardVelocity()
     {
         return transform.up * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.up);
