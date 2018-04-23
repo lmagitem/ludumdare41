@@ -112,7 +112,7 @@ public class Car2DController : MonoBehaviour {
         publicSpeed.text = toShow + " km/h";
 
 		//je choisi le couleur de la caisse
-		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue"))
+		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue")&& coroutinePurple == false)
 		{
 			colorVehicule = 3;
 			blocageAppui = true;
