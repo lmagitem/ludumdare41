@@ -26,12 +26,18 @@ public class Car2DController : MonoBehaviour {
 
 
     // Power charges
-	public int color= 0;
+	public int colorVehicule = 0;
 	private bool coroutinePurple = false;
 	private bool blocageAppui = false;
-	public int chargeColorRed = 0;
 	public int chargeBleu = 0;
 	public int chargeRouge = 0;
+	public int colorCharge = 0;
+
+	// Particules
+
+	public GameObject redTrail;
+
+
 
 
     void Start ()
@@ -100,37 +106,69 @@ public class Car2DController : MonoBehaviour {
         float toShow = Mathf.Round(speed * 140);
         publicSpeed.text = toShow + " km/h";
 
-		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue")) 
+		//je choisi le couleur de la caisse
+		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue"))
 		{
-			color = 3;
-			blocageAppui = true;
+			colorVehicule = 3;
+			/*blocageAppui = true;
 			coroutinePurple = true;
-			StartCoroutine ("purplePause");
+			StartCoroutine ("purplePause");*/
 
-		}
-		else if(Input.GetButton("ColorRed") && blocageAppui == false)
+		} else if (Input.GetButton ("ColorRed") /*&& blocageAppui == false*/)
 		{
-			color = 2;
+			colorVehicule = 2;
+			bool trailRed1Created = false;
+			if (!trailRed1Created )
+			{
+				Instantiate (redTrail, transform);		
+				trailRed1Created  = true;
+			}
 		}
 
-		else if(Input.GetButton("ColorBlue") && blocageAppui == false)
+		else if(Input.GetButton("ColorBlue")/*&& blocageAppui == false*/)
 		{
-			color = 1;
+			colorVehicule = 1;
 		}
-		if (color == 1) {
+
+
+		//je change de Layer pour stop les collision avec les portes
+
+		if (colorVehicule == 1 && chargeBleu > 0) {
 			gameObject.layer = 9; 
 			print ("blue");
 		} 
-		if (color == 2) {
+		if (colorVehicule == 2 && chargeRouge > 0) {
 			gameObject.layer = 10; 
 			print ("red");
 		} 
-		if (color == 3) {
+		if (colorVehicule == 3 && chargeRouge> 0 && chargeBleu >0) {
 			gameObject.layer = 11; 
 			print ("purple");
 		} 
 
     }
+
+	void OnTriggerEnter2D (Collider2D other) // pickups
+	{
+		if (other.gameObject.CompareTag ("PowerUp")) 
+		{
+			colorCharge = other.gameObject.GetComponent<PowerUpScript>().colorPower;
+			if (colorCharge == 1) 
+			{
+				chargeRouge = +1;
+			}
+			if (colorCharge == 2) 
+			{
+				chargeBleu = +1;
+				print ("+1");
+			}
+		}
+		/*if (other.gameObject.CompareTag ("Doors"))
+		{
+			int colorDoors = other.gameObject.GetComponent<DoorsScript> ().colorDoor;
+
+		}*/
+	}
 
     Vector2 ForwardVelocity()
     {
@@ -141,35 +179,17 @@ public class Car2DController : MonoBehaviour {
     {
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
-	IEnumerator purplePause()
+	/*IEnumerator purplePause()
 	{
 		yield return new WaitForSeconds (0.5f);
 		blocageAppui = false;
 		coroutinePurple = false;
-	}
-
+	}*/
+		
 	void OnTriggerExit () //portes
 	{
 
 		//-1charge fonction couleur
 	}
-	void OnTriggerEnter2D (Collider2D other) // pickups
-	{
-		if (other.gameObject.CompareTag ("PowerUp")) {
-			int color = other.gameObject.GetComponent<PowerUpScript>().colorPower;
-			if (color == 1) 
-			{
-				chargeRouge = +3;
-			}
-			if (color == 2) 
-			{
-				chargeBleu = +3;
-			}
-		}
-
-		//+1charge + type couleur
-		//timer respawn
-	}
-
 }
 

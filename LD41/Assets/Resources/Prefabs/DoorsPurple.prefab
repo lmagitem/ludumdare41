@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114499377398078558}
   - component: {fileID: 61624882514802830}
   m_Layer: 11
-  m_Name: DoorsRed 1
+  m_Name: DoorsPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
