@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Musique : MonoBehaviour {
 
+	private static bool created = false;
+
 	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);		
+
+		if (!created)
+		{
+			DontDestroyOnLoad (gameObject);
+			created = true;
+		}
+		//DontDestroyOnLoad (transform.gameObject);		
 	}
 }
