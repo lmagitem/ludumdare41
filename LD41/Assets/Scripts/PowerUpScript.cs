@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpScript : MonoBehaviour {
 
-	public int colorPower = 1;
+	public int colorPower;
 	public Sprite color1;
 	public Sprite color2;
 	public Sprite color4;
@@ -56,7 +56,6 @@ public class PowerUpScript : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (tempsDesacPower);
 		colorPower = originColor;
-		print ("active");
 		if (originColor == 1)
 		{
 			GetComponent<SpriteRenderer> ().sprite = color1;

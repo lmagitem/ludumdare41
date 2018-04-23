@@ -31,7 +31,7 @@ public class Car2DController : MonoBehaviour {
 	private bool blocageAppui = false;
 	public int chargeBleu = 0;
 	public int chargeRouge = 0;
-	public int colorCharge = 0;
+	public int colorCharge;
 
 	// Particules
 
@@ -94,6 +94,7 @@ public class Car2DController : MonoBehaviour {
                     angleSpeed = 4;
                 }
             }
+
         }
 
 
@@ -110,11 +111,11 @@ public class Car2DController : MonoBehaviour {
 		if (Input.GetButton ("ColorRed") && Input.GetButton ("ColorBlue"))
 		{
 			colorVehicule = 3;
-			/*blocageAppui = true;
+			blocageAppui = true;
 			coroutinePurple = true;
-			StartCoroutine ("purplePause");*/
+			StartCoroutine ("purplePause");
 
-		} else if (Input.GetButton ("ColorRed") /*&& blocageAppui == false*/)
+		} else if (Input.GetButton ("ColorRed") && blocageAppui == false)
 		{
 			colorVehicule = 2;
 			bool trailRed1Created = false;
@@ -125,7 +126,7 @@ public class Car2DController : MonoBehaviour {
 			}
 		}
 
-		else if(Input.GetButton("ColorBlue")/*&& blocageAppui == false*/)
+		else if(Input.GetButton("ColorBlue")&& blocageAppui == false)
 		{
 			colorVehicule = 1;
 		}
@@ -153,21 +154,22 @@ public class Car2DController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("PowerUp")) 
 		{
 			colorCharge = other.gameObject.GetComponent<PowerUpScript>().colorPower;
+
 			if (colorCharge == 1) 
 			{
-				chargeRouge = +1;
+				chargeBleu = +3;
 			}
 			if (colorCharge == 2) 
 			{
-				chargeBleu = +1;
-				print ("+1");
+				chargeRouge = +3;
 			}
+		
 		}
-		/*if (other.gameObject.CompareTag ("Doors"))
+		if (other.gameObject.CompareTag ("Doors"))
 		{
-			int colorDoors = other.gameObject.GetComponent<DoorsScript> ().colorDoor;
+			
 
-		}*/
+		}
 	}
 
     Vector2 ForwardVelocity()
@@ -179,12 +181,12 @@ public class Car2DController : MonoBehaviour {
     {
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
-	/*IEnumerator purplePause()
+	IEnumerator purplePause()
 	{
 		yield return new WaitForSeconds (0.5f);
 		blocageAppui = false;
 		coroutinePurple = false;
-	}*/
+	}
 		
 	void OnTriggerExit () //portes
 	{
