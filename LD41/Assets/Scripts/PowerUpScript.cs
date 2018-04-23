@@ -14,9 +14,11 @@ public class PowerUpScript : MonoBehaviour {
 	public bool desactiverPower = false;
 	public float tempsDesacPower = 2f;
 
+	Collider2D intCollider;
+
 	void Start()
 	{
-		int originColor = colorPower;
+		intCollider = GetComponent<Collider2D> ();
 	}
 	void Awake () 
 	{
@@ -38,6 +40,12 @@ public class PowerUpScript : MonoBehaviour {
 		if (colorPower == 4) 
 		{
 			GetComponent<SpriteRenderer> ().sprite = color4;
+		}
+		if (Input.GetButton ("ColorBlue"))
+		{
+			intCollider.enabled = !intCollider.enabled;
+			print ("collider" + intCollider.enabled);
+
 		}
 
 	}
