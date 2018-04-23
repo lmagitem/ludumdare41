@@ -137,8 +137,7 @@ public class Car2DController : MonoBehaviour {
 		{
 			colorVehicule = 1;
 		}
-
-		//je change de Layer pour stop les collision avec les portes
+			
 		if (chargeBleu + chargeRouge == 0)
 		{
 			gameObject.layer = 8;
@@ -161,11 +160,11 @@ public class Car2DController : MonoBehaviour {
 		{
 			colorCharge = other.gameObject.GetComponent<PowerUpScript>().colorPower;
 
-			if (colorCharge == 1) 
+			if (colorCharge == 1 ) 
 			{
 				chargeBleu = chargeBleu + 3;
 			}
-			if (colorCharge == 2) 
+			if (colorCharge == 2 ) 
 			{
 				chargeRouge = chargeRouge +3;
 			}
@@ -173,9 +172,24 @@ public class Car2DController : MonoBehaviour {
 		}
 		if (other.gameObject.CompareTag ("Doors"))
 		{
-
+			colorToOut = other.gameObject.GetComponent<DoorsScriptColor> ().colorDoor;
+			if (colorToOut == 1 && colorVehicule == 1 && chargeBleu > 0)
+			{
+				other.gameObject.SetActive (false);
+				chargeBleu = chargeBleu - 1;
+				print (chargeBleu);
+			}
+			if (colorToOut == 2 && colorVehicule == 2 && chargeRouge > 0)
+			{
+				other.gameObject.SetActive (false);
+				chargeRouge = chargeRouge - 1;
+			}
+			if (colorToOut == 3 && colorVehicule == 3 && chargeRouge> 0 && chargeBleu >0)
+			{
+				chargeRouge = chargeRouge - 1;
+				chargeBleu = chargeBleu - 1;
+			}
 		}
-
 	}
 
     Vector2 ForwardVelocity()
@@ -193,28 +207,6 @@ public class Car2DController : MonoBehaviour {
 		blocageAppui = false;
 		coroutinePurple = false;
 	}
-		
-	void OnTriggerExit2D (Collider2D other) 
-	{
-		if (other.gameObject.CompareTag ("Doors"))
-		{
-			colorToOut = other.gameObject.GetComponent<DoorsScriptColor>().colorDoor;
-			if (colorToOut == 1)
-			{
-				chargeBleu = chargeBleu - 1;
-				print (chargeBleu);
-			}
-			if (colorToOut == 2)
-			{
-				chargeRouge = chargeRouge-1;
-			}
-			if (colorToOut == 3)
-			{
-				chargeRouge = chargeRouge-1;
-				chargeBleu = chargeBleu-1;
-			}
-
-		}
-	}
+			
 }
 

@@ -9,10 +9,10 @@ public class DoorsScriptColor : MonoBehaviour {
 	public Sprite color2;
 	public Sprite color3;
 	// Use this for initialization
-	Collider2D intCollider;
+
 
 	void start() {
-		intCollider = GetComponent<Collider2D>();
+
 	}
 
 	void Awake () 
@@ -37,10 +37,6 @@ public class DoorsScriptColor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton ("test"))
-		{
-			intCollider.enabled = !intCollider.enabled;
-			print ("collider" + intCollider.enabled);
-		}
+
 	}
 }
