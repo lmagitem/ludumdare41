@@ -43,8 +43,6 @@ public class Car2DController : MonoBehaviour {
 
 
 
-
-
     void Start ()
     {
         leftFrontWheel = GetComponentInChildren<LFW>().gameObject.transform;
@@ -53,18 +51,17 @@ public class Car2DController : MonoBehaviour {
         rightRearWheel = GetComponentInChildren<RRW>().gameObject.transform;
         publicSpeed = GameObject.Find("RText" + player).GetComponent<Text>();
         publicSpeedSlider = GameObject.Find("SSImage" + player).GetComponent<Image>();
-
-	
-	}
+    }
 
     void Update()
     {
 		
-
+	
     }
 
     void FixedUpdate()
     {
+		print (chargeBleu);
 		Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         float driftFactor = driftFactorSticky;
@@ -171,10 +168,6 @@ public class Car2DController : MonoBehaviour {
 			}
 		
 		}
-		if (other.gameObject.CompareTag ("Doors"))
-		{
-
-		}
 
 	}
 
@@ -202,7 +195,6 @@ public class Car2DController : MonoBehaviour {
 			if (colorToOut == 1)
 			{
 				chargeBleu = chargeBleu - 1;
-				print (chargeBleu);
 			}
 			if (colorToOut == 2)
 			{
