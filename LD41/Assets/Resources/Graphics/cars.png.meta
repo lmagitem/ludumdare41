@@ -8,6 +8,7 @@ TextureImporter:
     21300002: cars_2
     21300004: cars_3
     21300006: cars_4
+    21300008: cars_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -85,13 +86,27 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cars_1
+      name: cars_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 14
-        width: 32
-        height: 61
+        y: 6
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cars_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 6
+        width: 36
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,10 +117,10 @@ TextureImporter:
       name: cars_2
       rect:
         serializedVersion: 2
-        x: 45
-        y: 18
-        width: 37
-        height: 57
+        x: 93
+        y: 6
+        width: 36
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,24 +131,10 @@ TextureImporter:
       name: cars_3
       rect:
         serializedVersion: 2
-        x: 94
-        y: 13
-        width: 32
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: cars_4
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 12
-        width: 32
-        height: 63
+        x: 139
+        y: 6
+        width: 36
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
