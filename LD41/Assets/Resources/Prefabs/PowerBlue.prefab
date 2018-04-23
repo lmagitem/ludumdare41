@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 58624734659901272}
   - component: {fileID: 114470947226818610}
   m_Layer: 0
-  m_Name: Power
-  m_TagString: Untagged
+  m_Name: PowerBlue
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
