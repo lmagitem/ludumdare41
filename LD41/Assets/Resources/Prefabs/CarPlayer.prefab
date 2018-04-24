@@ -199,7 +199,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.61}
+    oldSize: {x: 0.36, y: 0.72}
     newSize: {x: 0.32, y: 0.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -233,7 +233,8 @@ MonoBehaviour:
   chargeRouge: 0
   colorCharge: 0
   colorToOut: 0
-  redTrail: {fileID: 1130305884161838, guid: 1d2e16898c4c4fe4bbea344111609a33, type: 2}
+  redTextCount: {fileID: 0}
+  blueTextCount: {fileID: 0}
 --- !u!114 &114481280609716480
 MonoBehaviour:
   m_ObjectHideFlags: 1

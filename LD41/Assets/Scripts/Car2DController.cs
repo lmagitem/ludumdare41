@@ -38,7 +38,11 @@ public class Car2DController : MonoBehaviour {
 
 	// Particules
 
-	public GameObject redTrail;
+	//public GameObject redTrail;
+
+	//Texts
+	public Text redTextCount;
+	public Text blueTextCount;
 
 
 
@@ -53,8 +57,9 @@ public class Car2DController : MonoBehaviour {
         rightRearWheel = GetComponentInChildren<RRW>().gameObject.transform;
         publicSpeed = GameObject.Find("RText" + player).GetComponent<Text>();
         publicSpeedSlider = GameObject.Find("SSImage" + player).GetComponent<Image>();
-
-	
+		SetCountText ();
+		redTextCount = GameObject.Find("Canvas/TextRed").GetComponent<UnityEngine.UI.Text>();
+		blueTextCount = GameObject.Find ("TextBlue").GetComponent<Text> ();
 	}
 
     void Update()
@@ -125,12 +130,12 @@ public class Car2DController : MonoBehaviour {
 		} else if (Input.GetButton ("ColorRed") && blocageAppui == false)
 		{
 			colorVehicule = 2;
-			bool trailRed1Created = false;
+			/*bool trailRed1Created = false;
 			if (!trailRed1Created )
 			{
 				Instantiate (redTrail, transform);		
 				trailRed1Created  = true;
-			}
+			}*/
 		}
 
 		else if(Input.GetButton("ColorBlue")&& blocageAppui == false)
@@ -163,10 +168,12 @@ public class Car2DController : MonoBehaviour {
 			if (colorCharge == 1 ) 
 			{
 				chargeBleu = chargeBleu + 3;
+				SetCountText ();
 			}
 			if (colorCharge == 2 ) 
 			{
 				chargeRouge = chargeRouge +3;
+				SetCountText ();
 			}
 		
 		}
@@ -192,6 +199,11 @@ public class Car2DController : MonoBehaviour {
 			}
 		}
 	
+	}
+	void SetCountText()
+	{
+		redTextCount.text = "Red keys : " + chargeRouge.ToString();
+		blueTextCount.text = "Blue keys : " + chargeBleu.ToString ();
 	}
 	void OnTriggerEnterStay2D (Collider2D other) 
 	{
