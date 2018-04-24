@@ -58,7 +58,7 @@ public class Car2DController : MonoBehaviour {
         publicSpeed = GameObject.Find("RText" + player).GetComponent<Text>();
         publicSpeedSlider = GameObject.Find("SSImage" + player).GetComponent<Image>();
 		SetCountText ();
-		redTextCount = GameObject.Find("Canvas/TextRed").GetComponentInChildren<UnityEngine.UI.Text>();
+		redTextCount = GameObject.Find("Canvas/TextRed").GetComponent<UnityEngine.UI.Text>();
 		blueTextCount = GameObject.Find ("TextBlue").GetComponent<Text> ();
 	}
 
